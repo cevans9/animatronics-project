@@ -1,6 +1,9 @@
 <html>
 <head>
 <style>
+    body {
+        background-color: lightseagreen;
+    }
     h1 {color: blue;
         text-align: center;}
     .labels {
@@ -34,6 +37,8 @@
 
 </head>
 <body>
+<br>
+<br>
 <h1>Welcome to the Arduino Tracking Tool!</h1>
 <br>
 <h2>Audio File Selected: </h2>
@@ -42,7 +47,15 @@
     <input type="button" id="time-button" value="Time"/>
     <input type="button" id="action-button" value="Action"/>
     <input type="button" id="label-button" value="Label"/>
-    <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3ACartoon_Robot.svg&psig=AOvVaw26IzDiFsREI-FZeCH322tN&ust=1648844592622000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCJiysPSW8fYCFQAAAAAdAAAAABAD" alt="placeholder robot pic">
+    <img src="~/assets/robot-pic.png" alt="placeholder robot pic">
+    <br>
+    <input type="time" id="select-time" name="time-pick">
+    <select name="select-action" id="action-drop">
+        <option value="select-action">--- Select Action ---</option>
+        <option value="arm-move">Arm Move</option>
+        <option value="head-move">Head Move</option>
+        <option value="leg-move">Leg Move</option>
+      </select>
 </div>
 
 
