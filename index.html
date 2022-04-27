@@ -4,7 +4,7 @@
     body {
         background-color: lightseagreen;
     }
-    h1 {color: blue;
+    h1 {color: white;
         text-align: center;}
     .labels {
         margin: 10px;
@@ -12,25 +12,58 @@
         align-content: center;
     }
 
+    .column {
+        float: left;
+        width: 20%;
+    }
+
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
     #time-button {
         margin: 50px;
-        width: 120px;
+        width: 180px;
         height: 50px;
         font-size: large;
     }
 
     #action-button {
         margin: 50px;
-        width: 120px;
+        width: 180px;
         height: 50px;
         font-size: large;
     }
 
     #label-button {
         margin: 50px;
-        width: 120px;
+        width: 180px;
         height: 50px;
         font-size: large;
+    }
+
+    #select-time {
+        margin:50px;
+        width:180px;
+        height:30px;
+    }
+
+    #action-drop {
+        margin:50px;
+        width:180px;
+        height:30px;
+    }
+
+    #add-label {
+        margin:50px;
+        width:180px;
+        height:30px;
+    }
+
+    #placeholder {
+        color:lightseagreen;
     }
 
 </style>
@@ -42,21 +75,36 @@
 <h1>Welcome to the Arduino Tracking Tool!</h1>
 <br>
 <h2>Audio File Selected: </h2>
-<input type="button" id="dwn-btn" value="Upload New"/><br><br>
+<form action="/action_page.php">
+    <input type="file" id="myFile" name="filename">
+    <input type="submit">
+  </form><br><br>
 <div class="labels">
-    <input type="button" id="time-button" value="Time"/>
-    <input type="button" id="action-button" value="Action"/>
-    <input type="button" id="label-button" value="Label"/>
-    <img src="~/assets/robot-pic.png" alt="placeholder robot pic">
-    <br>
-    <input type="time" id="select-time" name="time-pick">
-    <select name="select-action" id="action-drop">
+    <div class="row">
+    <div class="column"><input type="button" id="time-button" value="Time"/></div>
+    <div class="column"><input type="button" id="action-button" value="Action"/></div>
+    <div class="column"><input type="button" id="label-button" value="Label"/></div>
+    </div>
+    <div class="row">
+        <div class="column"><input type="time" id="select-time" name="time-pick"></div>
+        <div class="column"><select name="select-action" id="action-drop">
         <option value="select-action">--- Select Action ---</option>
         <option value="arm-move">Arm Move</option>
         <option value="head-move">Head Move</option>
         <option value="leg-move">Leg Move</option>
-      </select>
+      </select></div>
+      <div class="column"><input type="button" id="add-label" value="+"/></div>
+    </div>
+    <div class="row">
+        <div class="column" id="placeholder">.</div>
+        <div class="column" id="placeholder">.</div>
+        <div class="column" id="placeholder">.</div>
+    <div class="column"><img src="/assets/robot-pic.png" alt="placeholder robot pic"></div>
+    </div>
+    
 </div>
+
+
 
 
     <!-- <textarea id="text-val" rows="4">This is the content of my file</textarea><br/> -->
